@@ -11,8 +11,8 @@ module.exports = function (RED) {
 		this.on('input', function (msg) {
 			var data = msg.payload
 			var sender = new ZabbixSender({
-				host: node.config.zabbixServer || msg.zabbixServer,
-				port: node.config.zabbixPort ||msg.zabbixPort,
+				host:  msg.zabbixServer || node.config.zabbixServer,
+				port: msg.zabbixPort ||node.config.zabbixPort,
 				timeout: node.config.timeout,
 				with_ns: node.config.withNs,
 				with_timestamps: node.config.sendTimestamps,
